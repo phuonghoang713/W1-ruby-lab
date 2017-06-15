@@ -5,9 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-1.times do |i|
-  photo = Photo.new  username: Faker::Internet.user_name, caption: Faker::Internet.user_name, likes_count: rand(100), url: Faker::Avatar.image, created_at: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today)
-
-  photo.save!
+#
+10.times do
+  Photo.create(
+    username: Faker::Internet.user_name,
+    caption: Faker::Lorem.sentence,
+    likes_count: Faker::Number.number(4),
+    url: Faker::Avatar.image,
+    created_at: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today))
 end
