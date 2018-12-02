@@ -1,0 +1,25 @@
+<%= form_with(model: photo) do |form| %>
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username, id: :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caption %>
+    <%= form.text_field :caption, id: :caption %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username:, id: :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username:, id: :username %>
+  </div>
+    url: Faker::Avatar.image,
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

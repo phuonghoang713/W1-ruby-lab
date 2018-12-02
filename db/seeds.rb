@@ -6,11 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-10.times do
-  Photo.create(
+100.times do
+  photo = Photo.create(
     username: Faker::Internet.user_name,
     caption: Faker::Lorem.sentence,
     likes_count: Faker::Number.number(4),
     url: Faker::Avatar.image,
-    created_at: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today))
+    created_at: Faker::Date.between_except(
+      1.year.ago, 1.year.from_now, Date.today
+    )
+  )
+  5.times do
+    photo.comments.create(
+      username: Faker::Internet.user_name,
+      body: Faker::Movie.quote
+    )
+  end
 end

@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
-
   def index
-    @photos = Photo.all
+    # @photos = Photo.all
+    @photos = Photo.page params[:page]
   end
 
   def show
@@ -11,6 +11,13 @@ class PhotosController < ApplicationController
   end
 
   def update
+  end
+
+  def new
+  end
+
+  def create
+    @photo =  Photo.new
   end
 
 end

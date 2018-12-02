@@ -1,4 +1,7 @@
+  <h1>Photos</h1>
   <% @photos.each do |photo| %>
-     <%= render 'photo', photo: photo %>
+     <!--<%= render 'photo', photo: photo %> -->
+     <%= render photo%>
   <% end %>
   <% puts @photos.size %>
+  <%= paginate @photos %>  
