@@ -1,24 +1,35 @@
-<%= form_with(model: photo) do |form| %>
+<%= form_for(@photo) do |form| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="field">
     <%= form.label :username %>
-    <%= form.text_field :username, id: :username %>
+    <%= form.text_field :username%>
   </div>
 
   <div class="field">
     <%= form.label :caption %>
-    <%= form.text_field :caption, id: :caption %>
+    <%= form.text_area :caption %>
   </div>
 
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username:, id: :username %>
+    <%= form.label :likes_count %>
+    <%= form.number_field :likes_count %>
   </div>
 
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username:, id: :username %>
+    <%= form.label :url %>
+    <%= form.text_field :url %>
   </div>
-    url: Faker::Avatar.image,
+
   <div class="actions">
     <%= form.submit %>
   </div>
