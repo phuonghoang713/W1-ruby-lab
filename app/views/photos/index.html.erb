@@ -3,6 +3,7 @@
      <!--<%= render 'photo', photo: photo %> -->
      <%= render photo%>
      <%= link_to 'Show', photo, method: :get, class: "btn btn-info" %>
+     <%= link_to 'Edit', edit_photo_path(photo), class: "btn btn-info" %>
   <% end %>
   <% puts @photos.size %>
   <%= paginate @photos %>  
